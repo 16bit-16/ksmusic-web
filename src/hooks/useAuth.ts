@@ -55,10 +55,8 @@ export function useTokenCapture() {
         const token = searchParams.get('token')
         if (token) {
             localStorage.setItem('token', token)
-            // chrome.storage에도 저장
-            if (typeof chrome !== 'undefined' && chrome.storage) {
-                chrome.storage.local.set({ token })
-            }
+            // 확장으로 토큰 전달
+            window.postMessage({ type: 'KSMUSIC_TOKEN', token }, '*')
             navigate('/dashboard', { replace: true })
         }
     }, [])
