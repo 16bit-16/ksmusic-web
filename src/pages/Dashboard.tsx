@@ -1,5 +1,6 @@
 import { useAuth, useTokenCapture, useNowPlaying } from "../hooks/useAuth";
 import Header from '../components/Header'
+import { useEffect } from "react";
 
 export default function Dashboard() {
   useTokenCapture(); // URL에서 토큰 캡처
@@ -10,6 +11,15 @@ export default function Dashboard() {
   const copy = () => {
     navigator.clipboard.writeText(user?.userId || '');
   }
+
+  useEffect(() => {
+    if (!user) {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        window.location.href = '/login';
+      }
+    }
+  }, [user]);
 
   if (!user) return <div className="flex text-center">로딩 중...</div>;
   return (
