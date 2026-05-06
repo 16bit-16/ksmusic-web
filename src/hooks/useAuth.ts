@@ -19,6 +19,9 @@ export function useAuth() {
 
     const logout = () => {
         localStorage.removeItem('token')
+        if (typeof chrome !== 'undefined' && chrome.storage) {
+            chrome.storage.local.remove('token')
+        }
         setUser(null)
     }
 
