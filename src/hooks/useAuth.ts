@@ -7,14 +7,8 @@ interface User {
     avatar: string
 }
 
-const dummyUser: User = {
-    userId: "123456789",
-    username: "TestUser",
-    avatar: "https://tr.rbxcdn.com/30DAY-AvatarHeadshot-188F6CEE1EE9BD2A1BA0E1516FCB9025-Png/150/150/AvatarHeadshot/Png/noFilter"
-}
-
 export function useAuth() {
-    const [user, setUser] = useState<User | null>(dummyUser)
+    const [user, setUser] = useState<User | null>(null)
 
     useEffect(() => {
         const token = localStorage.getItem('token')
