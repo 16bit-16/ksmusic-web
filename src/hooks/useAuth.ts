@@ -32,7 +32,7 @@ export function useNowPlaying(token: string | null) {
         if (!token) return
 
         const fetchNowPlaying = async () => {
-            const res = await fetch('https:/api.ksmusic.shop/api/me', {
+            const res = await fetch('https://api.ksmusic.shop/me', {
                 headers: { Authorization: `Bearer ${token}` }
             })
             const data = await res.json()
