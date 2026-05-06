@@ -1,20 +1,18 @@
 export default function Login() {
     return (
         <div className="px-40 flex items-center justify-center min-h-screen">
-            <div className="flex gap-20 items-center justify-center border-zinc-600 shadow-2xl border rounded-2xl h-128">
-                <div className="flex items-center justify-center w-full h-full px-12">
-                    <p className="text-4xl font-bold bg-linear-to-b from-orange-400 to-purple-400 bg-clip-text text-transparent">KSMusic</p>
+            <div className="flex items-center justify-center border-purple-400 shadow-2xl border rounded-2xl h-128">
+                <div className="flex items-center justify-center w-full h-full px-24 gap-1">
+                    <p className='text-3xl font-bold'>KS</p>
+                    <p className="text-3xl font-bold bg-linear-to-b from-pink-500 to-blue-500 bg-clip-text text-transparent">Music</p>
                 </div>
-                <div className="bg-zinc-600 w-1 h-full"></div>
-                <div className="flex flex-col items-center justify-center w-full h-full px-12">
-                    <p className="text-2xl pb-4">로그인</p>
-                    <form action="submit" className="flex flex-col gap-4 mt-4">
-                        <input type="text" placeholder="아이디" className="border border-zinc-600 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                        <input type="password" placeholder="비밀번호" className="border border-zinc-600 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                        <button type="submit" className="bg-purple-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600">
-                            로그인
-                        </button>
-                    </form>
+                <div className="bg-purple-400 w-0.5 h-3/4"></div>
+                <div className="flex flex-col items-center justify-center h-full px-24 gap-12 text-center">
+                    <p className="text-2xl font-bold whitespace-nowrap">로블록스로 로그인</p>
+                    <a href="https://ksmusic.shop/auth/callback" className="flex justify-center items-center gap-4 bg-white rounded-xl px-6 py-6 hover:bg-zinc-300 transition-colors duration-300 whitespace-nowrap">
+                        <img src="/roblox.png" alt="Roblox" className="w-8 h-8"/>
+                        <p className="text-xl font-black text-black">로그인</p>
+                    </a>
                 </div>
             </div>
         </div>

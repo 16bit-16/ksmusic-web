@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import Main from "./pages/main";
+import Main from "./pages/Main";
 import Login from "./pages/Login";
-// import Signup from "./pages/Signup";
+import Dashboard from "./pages/Dashboard";
 
 export default function App() {
   return (
@@ -11,7 +11,7 @@ export default function App() {
             {/* 공개 페이지 */}
             <Route path="/" element={<Main />} />
             <Route path="/login" element={<Login />} />
-            {/* <Route path="/signup" element={<Signup />} /> */}
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </main>
     </div>
