@@ -9,7 +9,7 @@ export default function Login() {
                 <div className="bg-purple-400 w-0.5 h-3/4"></div>
                 <div className="flex flex-col items-center justify-center h-full px-24 gap-12 text-center">
                     <p className="text-2xl font-bold whitespace-nowrap">로블록스로 로그인</p>
-                    <a href="https://ksmusic.shop/auth/callback" className="flex justify-center items-center gap-4 bg-white rounded-xl px-6 py-6 hover:bg-zinc-300 transition-colors duration-300 whitespace-nowrap">
+                    <a href="https://ksmusic.shop/api/auth/login" className="flex justify-center items-center gap-4 bg-white rounded-xl px-6 py-6 hover:bg-zinc-300 transition-colors duration-300 whitespace-nowrap">
                         <img src="/roblox.png" alt="Roblox" className="w-8 h-8"/>
                         <p className="text-xl font-black text-black">로그인</p>
                     </a>
