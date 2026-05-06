@@ -31,7 +31,7 @@ export default function Dashboard() {
           <div className="flex flex-col gap-8">
             <p className="text-2xl">현재 재생중인 노래</p>
             <div className="flex gap-8">
-              <img src="/image2.png" alt="" className="w-32 h-32 rounded-xl"/>
+              <img src={nowPlaying.albumArt} alt="" className="w-32 h-32 rounded-xl"/>
               <div className="flex flex-col gap-2">
                 <p className="text-xl font-bold">{nowPlaying.title || '재생중인 노래 없음'}</p>
                 <p className="text-lg text-zinc-300">{nowPlaying.artist}</p>

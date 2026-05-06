@@ -26,7 +26,7 @@ export function useAuth() {
 }
 
 export function useNowPlaying(token: string | null) {
-    const [nowPlaying, setNowPlaying] = useState({ title: '', artist: '' })
+    const [nowPlaying, setNowPlaying] = useState({ title: '', artist: '', albumArt: '' })
 
     useEffect(() => {
         if (!token) return
