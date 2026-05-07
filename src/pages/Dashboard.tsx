@@ -1,5 +1,5 @@
 import { useAuth, useTokenCapture, useNowPlaying } from "../hooks/useAuth";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Header from '../components/Header'
 import Timeline from '../components/Timeline'
 
@@ -8,9 +8,12 @@ export default function Dashboard() {
   const { user, logout } = useAuth();
   const token = localStorage.getItem('token')
   const nowPlaying = useNowPlaying(token)
+  const [copied, setCopied] = useState(false);
 
   const copy = () => {
     navigator.clipboard.writeText(user?.userId || '');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
   }
 
   useEffect(() => {
@@ -28,7 +31,7 @@ export default function Dashboard() {
       {/* 헤더 */}
       <Header />
       {/* 메인 */}
-      <div className="flex flex-col justify-center border-purple-400 border gap-16 p-16 rounded-2xl ">
+      <div className="bg-zinc-800 flex flex-col justify-center border-purple-400 border gap-16 p-16 rounded-2xl ">
         <div className="flex items-start gap-24">
           {/* 프로필 */}
           <div className="flex flex-col gap-8">
@@ -57,8 +60,10 @@ export default function Dashboard() {
         <div className="flex flex-col gap-4">
           <p className="text-2xl">내 아이디</p>
           <div className="flex justify-between items-center border-purple-400 border px-6 py-4 rounded-2xl">
-            <p className="text-lg font-medium">{user.userId}</p>
-            <button onClick={copy} className="bg-purple-500 text-white px-4 py-2 rounded-md hover:bg-purple-600 transition-colors duration-300">복사</button>
+            <p className="text-lg font-medium">{user.userId || '아이디 정보 없음'}</p>
+            <button onClick={copy} className="border-zinc-600 border-2 text-white rounded-md hover:bg-zinc-700 transition-colors duration-300">
+              <img src={copied ? '/check.png' : '/copy.png'} className="w-8 h-8"/>
+            </button>
           </div>
         </div>
         <div className="w-full h-0.5 bg-purple-400"></div>
