@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function Privacy() {
   return (
@@ -55,6 +56,7 @@ export default function Privacy() {
           <p className="text-purple-400">lhy93380@gmail.com</p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

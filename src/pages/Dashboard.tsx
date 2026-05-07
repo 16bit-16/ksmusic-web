@@ -1,6 +1,7 @@
 import { useAuth, useTokenCapture, useNowPlaying } from "../hooks/useAuth";
 import { useEffect, useState } from "react";
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import Timeline from '../components/Timeline'
 
 export default function Dashboard() {
@@ -79,6 +80,7 @@ export default function Dashboard() {
       <button onClick={logout} className="bg-purple-500 text-white px-8 py-4 rounded-lg mb-40">
           <p className="font-bold text-xl">로그아웃</p>
       </button>
+      <Footer />
     </div>
   );
 }
