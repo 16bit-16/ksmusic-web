@@ -32,7 +32,7 @@ export default function Main() {
                     <a target='_blank' href="https://discord.gg/DK6rG8tEsf" className='px-8 py-4 bg-purple-600 rounded-lg text-lg hover:bg-purple-400 transition-colors duration-300'>
                         디스코드
                     </a>
-                    <Link to="/login" className='px-8 py-4 border-purple-400 border-2 text-purple-400 rounded-lg text-lg hover:bg-zinc-700 hover:text-purple-200 hover:border-purple-200 transition-colors duration-300'>
+                    <Link to="/dashboard" className='px-8 py-4 border-purple-400 border-2 text-purple-400 rounded-lg text-lg hover:bg-zinc-700 hover:text-purple-200 hover:border-purple-200 transition-colors duration-300'>
                         사용하러 가기
                     </Link>
                 </div>

@@ -1,6 +1,7 @@
 import { useAuth, useTokenCapture, useNowPlaying } from "../hooks/useAuth";
-import Header from '../components/Header'
 import { useEffect } from "react";
+import Header from '../components/Header'
+import Timeline from '../components/Timeline'
 
 export default function Dashboard() {
   useTokenCapture(); // URL에서 토큰 캡처
@@ -33,18 +34,21 @@ export default function Dashboard() {
           <div className="flex flex-col gap-8">
             <p className="text-2xl">프로필</p>
             <div className="flex flex-col gap-4">
-              <img src={user.avatar} className="w-32 h-32 bg-zinc-700 rounded-full " />
-              <p className="text-xl">{user.username} 님 반가워요!</p>
+              <img src={user.avatar || '/no-image.png'} className="w-32 h-32 bg-zinc-700 rounded-full " />
+              <p className="text-xl whitespace-nowrap">{!user ? '로그인을 해주세요' : `${user.username} 님 반가워요!`}</p>
             </div>
           </div>
-          {/* 타임라인 */}
-          <div className="flex flex-col gap-8">
+          {/* 현재 재생 */}
+          <div className="flex flex-col gap-8 grow">
             <p className="text-2xl">현재 재생중인 노래</p>
             <div className="flex gap-8">
-              <img src={nowPlaying.albumArt} alt="" className="w-32 h-32 rounded-xl"/>
-              <div className="flex flex-col gap-2">
-                <p className="text-xl font-bold">{nowPlaying.title || '재생중인 노래 없음'}</p>
-                <p className="text-lg text-zinc-300">{nowPlaying.artist}</p>
+              <img src={nowPlaying.albumArt || '/no-image.png'} alt="" className="w-32 h-32 rounded-xl object-cover bg-zinc-700"/>
+              <div className="w-full flex flex-col justify-between">
+                <div className="flex flex-col gap-2">
+                  <p className="text-xl font-bold">{nowPlaying.title || '재생중인 노래 없음'}</p>
+                  <p className="text-lg text-zinc-300">{nowPlaying.artist || '아티스트 정보 없음'}</p>
+                </div>
+                <Timeline current={nowPlaying.current} total={nowPlaying.total} />
               </div>
             </div>
           </div>
@@ -67,7 +71,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <button onClick={logout} className="bg-purple-500 text-white px-8 py-4 rounded-lg">
+      <button onClick={logout} className="bg-purple-500 text-white px-8 py-4 rounded-lg mb-40">
           <p className="font-bold text-xl">로그아웃</p>
       </button>
     </div>

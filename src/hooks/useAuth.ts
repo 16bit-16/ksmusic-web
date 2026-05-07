@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 
 interface User {
@@ -29,7 +29,10 @@ export function useAuth() {
 }
 
 export function useNowPlaying(token: string | null) {
-    const [nowPlaying, setNowPlaying] = useState({ title: '', artist: '', albumArt: '' })
+    const [nowPlaying, setNowPlaying] = useState({ title: '', artist: '', albumArt: '', current: '0:00', total: '0:00', isPlaying: false })
+    const currentRef = useRef('0:00')
+    const isPlayingRef = useRef(false)
+
 
     useEffect(() => {
         if (!token) return
@@ -40,11 +43,27 @@ export function useNowPlaying(token: string | null) {
             })
             const data = await res.json()
             setNowPlaying(data.nowPlaying)
+            currentRef.current = data.nowPlaying.current
+            isPlayingRef.current = data.nowPlaying.isPlaying
         }
 
         fetchNowPlaying()
-        const interval = setInterval(fetchNowPlaying, 3000)
-        return () => clearInterval(interval)
+        const fetchInterval = setInterval(fetchNowPlaying, 3000)
+
+        // 1초마다 current 증가
+        const tickInterval = setInterval(() => {
+            if (!isPlayingRef.current) return
+            const [m, s] = currentRef.current.split(':').map(Number)
+            let totalSec = m * 60 + s + 1
+            const newCurrent = `${Math.floor(totalSec / 60)}:${String(totalSec % 60).padStart(2, '0')}`
+            currentRef.current = newCurrent
+            setNowPlaying(prev => ({ ...prev, current: newCurrent }))
+        }, 1000)
+
+        return () => {
+            clearInterval(fetchInterval)
+            clearInterval(tickInterval)
+        }
     }, [token])
 
     return nowPlaying
