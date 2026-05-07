@@ -31,13 +31,13 @@ export default function Dashboard() {
       {/* 헤더 */}
       <Header />
       {/* 메인 */}
-      <div className="bg-zinc-800 flex flex-col justify-center border-purple-400 border gap-16 p-16 rounded-2xl ">
+      <div className="bg-zinc-800 flex flex-col justify-center border-purple-400 border gap-16 p-16 rounded-2xl">
         <div className="flex items-start gap-24">
           {/* 프로필 */}
           <div className="flex flex-col gap-8">
             <p className="text-2xl">프로필</p>
             <div className="flex flex-col gap-4">
-              <img src={user.avatar || '/no-image.png'} className="w-32 h-32 bg-zinc-700 rounded-full " />
+              <img src={user.avatar || '/no-image.png'} className="w-32 h-32 bg-zinc-700 rounded-full"/>
               <p className="text-xl whitespace-nowrap">{!user ? '로그인을 해주세요' : `${user.username} 님 반가워요!`}</p>
             </div>
           </div>
