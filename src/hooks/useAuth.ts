@@ -83,3 +83,18 @@ export function useTokenCapture() {
         }
     }, [])
 }
+
+export function useSpotifyStatus(token: string | null) {
+    const [connected, setConnected] = useState(false)
+
+    useEffect(() => {
+        if (!token) return
+        fetch('https://api.ksmusic.shop/spotify/status', {
+            headers: { Authorization: `Bearer ${token}` }
+        })
+        .then(r => r.json())
+        .then(data => setConnected(data.connected))
+    }, [token])
+
+    return connected
+}
