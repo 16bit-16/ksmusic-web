@@ -98,3 +98,19 @@ export function useSpotifyStatus(token: string | null) {
 
     return connected
 }
+
+export function useExtensionInstalled() {
+    const [installed, setInstalled] = useState(false)
+
+    useEffect(() => {
+        const handler = (e: MessageEvent) => {
+            if (e.data?.type === 'KSMUSIC_EXTENSION_INSTALLED') {
+                setInstalled(true)
+            }
+        }
+        window.addEventListener('message', handler)
+        return () => window.removeEventListener('message', handler)
+    }, [])
+
+    return installed
+}
