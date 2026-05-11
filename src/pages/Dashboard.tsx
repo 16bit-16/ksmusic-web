@@ -132,7 +132,8 @@ export default function Dashboard() {
             <div className="flex flex-col gap-8 items-center justify-center py-16">
               <p className="text-2xl text-zinc-400">확장 프로그램 연동이 필요해요</p>
               <a
-                href="#"
+                href="https://chromewebstore.google.com/detail/pjjehmaallfipoebeccmbjdlgbbocjba?utm_source=item-share-cb"
+                target="_blank"
                 className="bg-purple-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-purple-600 transition-colors"
               >
                 확장 프로그램 설치하기
