@@ -10,7 +10,7 @@ export default function Header() {
 
     return (
         <>
-            <div className="flex flex-row py-4 items-center justify-between border-purple-400 border-b">
+            <div className="sticky top-0 z-50 flex flex-row py-4 items-center justify-between border-b border-purple-400 backdrop-blur-lg">
                 <div className="flex items-center gap-6 ">
                     <a className="flex gap-1" href="/">
                         <p className='text-2xl font-bold'>KS</p>
