@@ -81,12 +81,11 @@ export default function Dashboard() {
                 <p className="text-2xl">현재 재생중인 노래</p>
                 <div className="flex gap-8">
                   <img src={nowPlaying.albumArt || "/no-image.png"} alt="" className="w-32 h-32 rounded-xl object-cover bg-zinc-700" />
-                  <div className="w-full flex flex-col justify-between">
-                    <div className="flex flex-col gap-2">
-                      <p className="text-xl font-bold">{nowPlaying.title || "재생중인 노래 없음"}</p>
+                  <div className="w-full flex">
+                    <div className="flex flex-col gap-4 justify-center">
+                      <p className="text-2xl font-bold">{nowPlaying.title || "재생중인 노래 없음"}</p>
                       <p className="text-lg text-zinc-300">{nowPlaying.artist || "아티스트 정보 없음"}</p>
                     </div>
-                    <Timeline current={nowPlaying.current} total={nowPlaying.total} />
                   </div>
                 </div>
               </div>
