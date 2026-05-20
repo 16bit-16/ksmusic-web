@@ -95,7 +95,7 @@ export default function Dashboard() {
             <div className="flex flex-col gap-8 items-center justify-center py-16">
               <p className="text-2xl text-zinc-400">Last.fm 연동이 필요해요</p>
               <a
-                href={`https://api.ksmusic.shop/lastfm/login`}
+                href={`https://api.ksmusic.shop/lastfm/login?token=${token}`}
                 className="bg-red-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-red-600 transition-colors"
               >
                 Last.fm 연동하기
