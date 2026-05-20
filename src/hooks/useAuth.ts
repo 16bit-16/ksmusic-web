@@ -84,12 +84,12 @@ export function useTokenCapture() {
     }, [])
 }
 
-export function useSpotifyStatus(token: string | null) {
+export function useLastfmStatus(token: string | null) {
     const [connected, setConnected] = useState(false)
 
     useEffect(() => {
         if (!token) return
-        fetch('https://api.ksmusic.shop/spotify/status', {
+        fetch('https://api.ksmusic.shop/lastfm/status', {
             headers: { Authorization: `Bearer ${token}` }
         })
         .then(r => r.json())
