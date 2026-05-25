@@ -61,7 +61,7 @@ export default function Dashboard() {
               onClick={() => handleTabChange("lastfm")}
               className={`text-2xl transition-colors ${activeTab === "lastfm" ? "text-purple-400 font-bold" : "text-zinc-500 font-medium"}`}
             >
-              스포티파이
+              기타 서비스
             </button>
           </div>
           <div className="w-full h-0.5 bg-purple-400" />
