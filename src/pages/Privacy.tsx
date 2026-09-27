@@ -7,7 +7,7 @@ export default function Privacy() {
       <Header />
       <div className="bg-zinc-800 flex flex-col gap-8 border-purple-400 border p-16 rounded-2xl">
         <h1 className="text-3xl font-bold">개인정보 처리방침</h1>
-        <p className="text-zinc-400">최종 수정일: 2025년 5월 8일</p>
+        <p className="text-zinc-400">최종 수정일: 2026년 5월 8일</p>
 
         <div className="flex flex-col gap-4">
           <h2 className="text-xl font-bold">1. 수집하는 정보</h2>
